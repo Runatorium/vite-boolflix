@@ -1,9 +1,14 @@
+<temeplate>
+
+
+</temeplate>
+
+
 <script>
 import { store } from '../store.js';
 
-
 export default{
-    name: 'MainComponent',
+    name: 'MySearchedMovie',
 
     data() {
             return {
@@ -11,13 +16,11 @@ export default{
             }
           },
 }
-
 </script>
-
-<template>
-  
-</template>
+    
 
 <style scoped>
 
 </style>
+
+
