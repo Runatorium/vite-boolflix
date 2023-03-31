@@ -1,11 +1,21 @@
+
+<template>
+  <MyHeader @SearchMovie="doSearch"></MyHeader>
+</template>
+
+
+
+
 <script>
 import MainComponent from './components/MainComponent.vue'
+import MyHeader from './components/MyHeader.vue';
 import { store } from './store.js';
 import axios from 'axios'
 
 export default{ 
       components: {
         MainComponent,
+        MyHeader,
       },
 
       async mounted() {
@@ -24,14 +34,15 @@ export default{
               
             }
           },
+          methods:{
+            doSearch(){
+              console.log(store.search);
+              store.search = "";
+            }
+          }
 }
 
 </script>
-
-<template>
-  <h1>{{ store.API }}</h1>
-
-</template>
 
 <style lang="scss">
 
