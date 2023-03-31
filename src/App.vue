@@ -18,16 +18,6 @@ export default{
         MyHeader,
       },
 
-      async mounted() {
-      try { 
-          const result = await axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=cfa9c9067bc907e38a40f33250b3a14d`);
-          this.store.SuggestedMovieList = result.data.results;
-          console.log(this.store.SuggestedMovieList)
-          }  catch(e){
-          console.log(e)
-          }
-        },
-
       data() {
            return {
               store
@@ -35,12 +25,20 @@ export default{
             }
           },
           methods:{
-            doSearch(){
-              console.log(store.search);
-              store.search = "";
-            }
-          }
-}
+
+          async  doSearch(){
+                    try { 
+                        const result = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=cfa9c9067bc907e38a40f33250b3a14d&query=${this.store.search}`);
+                        this.store.searchedMovie = result.data.results;
+                        this.store.search = "";
+                        console.log(result.data.results);
+                        }  catch(e){
+                            console.log(e)
+                          }
+              },
+        }
+  }
+
 
 </script>
 
