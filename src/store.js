@@ -5,6 +5,7 @@ export const store = reactive(
     {
         searchedShows: [],
         searchedMovie: [],
+        standard: "fi fi-",
         search: '',
     }
 );

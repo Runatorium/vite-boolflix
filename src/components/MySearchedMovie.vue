@@ -22,7 +22,7 @@ export default{
             <div v-for="(movie) in store.searchedMovie" class="movie">
                 <h1>{{movie.title}}</h1>
                 <h3>{{movie.original_title}}</h3>
-                <p>{{movie.original_language}}</p>
+                <span :class="store.standard + movie.original_language"></span>
                 <h4>{{movie.vote_average}}</h4>
             </div>
     </div>

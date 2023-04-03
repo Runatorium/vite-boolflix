@@ -23,7 +23,7 @@ export default{
             <div v-for="(show) in store.searchedShows" class="show">
                 <h1>{{show.name}}</h1>
                 <h3>{{show.original_title}}</h3>
-                <p>{{show.original_language}}</p>
+                <span :class="store.standard + show.original_language"></span>
                 <h4>{{show.vote_average}}</h4>
             </div>
     </div>
