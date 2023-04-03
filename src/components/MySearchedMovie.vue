@@ -13,8 +13,17 @@ export default{
           },
           methods:{
           calcvote(vote){
+            let nstars = " ";
             let voto = Math.ceil(vote / 2).toFixed(1) ;
-            return  voto
+            for(let index=0; index<5; index++){
+                if(index < voto){
+                    nstars += '<i class="fa-solid fa-star"></i>'
+                }else{
+                    nstars += '<i class="fa-regular fa-star"></i>'
+                }
+                
+            }
+            return  nstars
           }
             
           }
