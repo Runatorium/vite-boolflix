@@ -5,6 +5,7 @@ export const store = reactive(
     {
         searchedShows: [],
         searchedMovie: [],
+        movieurl: "http://image.tmdb.org/t/p/w500/",
         standard: "fi fi-",
         search: '',
     }

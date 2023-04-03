@@ -21,6 +21,7 @@ export default{
     
     <div class="box">
             <div v-for="(show) in store.searchedShows" class="show">
+                <img :src="store.movieurl + show.poster_path" alt="">
                 <h1>{{show.name}}</h1>
                 <h3>{{show.original_title}}</h3>
                 <span :class="store.standard + show.original_language"></span>

@@ -20,6 +20,7 @@ export default{
     </div>
     <div class="box">
             <div v-for="(movie) in store.searchedMovie" class="movie">
+                <img :src="store.movieurl + movie.poster_path" alt="">
                 <h1>{{movie.title}}</h1>
                 <h3>{{movie.original_title}}</h3>
                 <span :class="store.standard + movie.original_language"></span>
