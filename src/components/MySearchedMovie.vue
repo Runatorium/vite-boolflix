@@ -35,8 +35,16 @@ export default{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
-    
-    
+}
+
+h1{
+ font-size: 20px;
+}
+h3{
+    font-size: 14px;
+}
+span{
+    align-self: center;
 }
 .movie{
     border: solid 2px rgb(0, 0, 0);
@@ -45,6 +53,8 @@ export default{
     display: flex;
     flex-direction: column;
     text-align: center;
+    min-height: 300px;
+    justify-content: space-between;
 }
 
 </style>
