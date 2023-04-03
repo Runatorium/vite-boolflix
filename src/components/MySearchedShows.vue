@@ -1,9 +1,8 @@
 <script>
-
-import { store } from '../store.js';
+import {store} from '../store.js'
 
 export default{
-    name: 'MySearchedMovie',
+    name: 'MySearchedShows',
 
     data() {
             return {
@@ -11,34 +10,33 @@ export default{
             }
           },
 }
+
 </script>
 
 
 <template>
     <div>
-        <h2 v-if="store.searchedMovie.length > 0">Movies</h2>
+        <h2 v-if="store.searchedShows.length > 0">TV Shows</h2>
     </div>
+    
     <div class="box">
-            <div v-for="(movie) in store.searchedMovie" class="movie">
-                <h1>{{movie.title}}</h1>
-                <h3>{{movie.original_title}}</h3>
-                <p>{{movie.original_language}}</p>
-                <h4>{{movie.vote_average}}</h4>
+            <div v-for="(show) in store.searchedShows" class="show">
+                <h1>{{show.name}}</h1>
+                <h3>{{show.original_title}}</h3>
+                <p>{{show.original_language}}</p>
+                <h4>{{show.vote_average}}</h4>
             </div>
     </div>
+
 </template>
-
-
 
 <style scoped>
 .box{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
-    
-    
 }
-.movie{
+.show{
     border: solid 2px rgb(0, 0, 0);
     color: rgb(0, 0, 0);
     width: calc(100% / 6);
@@ -46,7 +44,4 @@ export default{
     flex-direction: column;
     text-align: center;
 }
-
 </style>
-
-
