@@ -1,23 +1,18 @@
 <script>
-
 import { toNumber } from '@vue/shared';
 import { store } from '../store.js';
-/**/ 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-/**/ 
+
 export default{
     name: 'MySearchedMovie',
 
     data() {
             return {
-              store
+              store,
             }
           },
           methods:{
           calcvote(vote){
-            let nstars = " ";
+            let nstars = "";
             let voto = Math.ceil(vote / 2).toFixed(1) ;
             for(let index=0; index<5; index++){
                 if(index < voto){
@@ -26,7 +21,7 @@ export default{
                     nstars += '<i class="fa-regular fa-star"></i>'
                 } 
             }
-            return  nstars
+            return nstars;
           }
             
           }
@@ -46,20 +41,21 @@ export default{
                 <h1>{{movie.title}}</h1>
                 <h3>{{movie.original_title}}</h3>
                 <span :class="store.standard + movie.original_language"></span>
-                <h4 :v-text="calcvote(movie.vote_average)"></h4>
+                <h4 v-html="calcvote(movie.vote_average)"></h4>
             </div>
     </div>
 </template>
 
 
 
+
 <style scoped>
+
 .box{
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
 }
-
 h1{
  font-size: 20px;
 }

@@ -11,9 +11,18 @@ export default{
           },
           methods:{
           calcvote(vote){
+            let nstars = "";
             let voto = Math.ceil(vote / 2).toFixed(1) ;
-            return  voto
-             } 
+            for(let index=0; index<5; index++){
+                if(index < voto){
+                    nstars += '<i class="fa-solid fa-star"></i>'
+                }else{
+                    nstars += '<i class="fa-regular fa-star"></i>'
+                } 
+            }
+            return nstars;
+          }
+            
           }
 }
 
@@ -31,7 +40,7 @@ export default{
                 <h1>{{show.name}}</h1>
                 <h3>{{show.original_title}}</h3>
                 <span :class="store.standard + show.original_language"></span>
-                <h4 v-text="calcvote(show.vote_average)"></h4>
+                <h4 v-html="calcvote(show.vote_average)"></h4>
             </div>
     </div>
 
