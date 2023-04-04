@@ -36,7 +36,7 @@ export default{
     </div>
     <div class="box">
             <div v-for="(movie) in store.searchedMovie" class="movie">
-                <img v-if="movie.poster_path != 'null'" :src="store.movieurl + movie.poster_path" alt="">
+                <img v-if="movie.poster_path !== 'null'" :src="store.movieurl + movie.poster_path" alt="">
                 <img v-else :src="store.standardpng" alt="">
                 <h1>{{movie.title}}</h1>
                 <h3>{{movie.original_title}}</h3>

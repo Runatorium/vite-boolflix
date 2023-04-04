@@ -38,7 +38,7 @@ export default{
             <div v-for="(show) in store.searchedShows" class="show">
                 <img :src="store.movieurl + show.poster_path" alt="">
                 <h1>{{show.name}}</h1>
-                <h3>{{show.original_title}}</h3>
+                <h3>{{show.original_name}}</h3>
                 <span :class="store.standard + show.original_language"></span>
                 <h4 v-html="calcvote(show.vote_average)"></h4>
             </div>
