@@ -51,23 +51,31 @@ export default{
 
 
 <template>
-    <div>
+    <div class="title">
         <h2 v-if="store.searchedShows.length > 0">TV Shows</h2>
     </div>
-    
-    <div class="box">
-            <div v-for="(show) in store.searchedShows" class="show">
-                <img :src="movieposter(show.poster_path)" alt="">
-                <h1>{{show.name}}</h1>
-                <h3>{{show.original_name}}</h3>
-                <span :class="store.standard + checklang(show.original_language)"></span>
-                <h4 v-html="calcvote(show.vote_average)"></h4>
-            </div>
+    <div class="container">
+        <div class="box">
+                <div v-for="(show) in store.searchedShows" class="show">
+                    <img :src="movieposter(show.poster_path)" alt="">
+                    <h1>{{show.name}}</h1>
+                    <h3>{{show.original_name}}</h3>
+                    <span :class="store.standard + checklang(show.original_language)"></span>
+                    <h4 v-html="calcvote(show.vote_average)"></h4>
+                </div>
+        </div>
     </div>
 
 </template>
 
 <style scoped>
+.title{
+    margin-left: 16%;
+}
+.container{
+    display: flex;
+    width: 100%;
+}
 .box{
     display: flex;
     flex-wrap: wrap;

@@ -1,8 +1,8 @@
 
 <template>
   <MyHeader @SearchMovie="doSearch"></MyHeader>
-  <MySearchedMovie></MySearchedMovie>
-  <MySearchedShows></MySearchedShows>
+    <MySearchedMovie></MySearchedMovie>
+    <MySearchedShows></MySearchedShows>
 </template>
 
 
