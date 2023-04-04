@@ -22,8 +22,28 @@ export default{
                 } 
             }
             return nstars;
-          }
+          },
             
+          checklang(toCheck){
+            if(toCheck == 'en'){
+                toCheck = 'gb'
+            }else if(toCheck == 'ja'){
+                toCheck = 'jp'
+            }
+            return toCheck;
+          },
+          movieposter(urlToCheck){
+            let finalUrl = "";
+            if(urlToCheck == null){
+               finalUrl += "../../public/standardlogo.png"
+            }else{
+                finalUrl = store.movieurl
+                finalUrl += urlToCheck
+                console.log(finalUrl)
+            }
+            return finalUrl;
+          }
+          
           }
 
 }
@@ -36,11 +56,10 @@ export default{
     </div>
     <div class="box">
             <div v-for="(movie) in store.searchedMovie" class="movie">
-                <img v-if="movie.poster_path !== 'null'" :src="store.movieurl + movie.poster_path" alt="">
-                <img v-else :src="store.standardpng" alt="">
+                <img :src="movieposter(movie.poster_path)" alt="">
                 <h1>{{movie.title}}</h1>
                 <h3>{{movie.original_title}}</h3>
-                <span :class="store.standard + movie.original_language"></span>
+                <span :class="store.standard + checklang(movie.original_language)"></span>
                 <h4 v-html="calcvote(movie.vote_average)"></h4>
             </div>
     </div>
