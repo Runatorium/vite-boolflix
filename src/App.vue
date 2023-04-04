@@ -49,6 +49,14 @@ export default{
                        console.log(e)
                   }
               },
+              checklang(toCheck){
+            if(toCheck == 'en'){
+                toCheck = 'gb'
+            }else if(toCheck == 'ja'){
+                toCheck = 'jp'
+            }
+            return toCheck;
+          },
                
         }
   }

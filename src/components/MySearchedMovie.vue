@@ -32,6 +32,7 @@ export default{
             }
             return toCheck;
           },
+          
           movieposter(urlToCheck){
             let finalUrl = "";
             if(urlToCheck == null){
@@ -51,20 +52,22 @@ export default{
 
 
 <template>
-    <div class="title">
-        <h2 v-if="store.searchedMovie.length > 0"> Movies</h2>
-    </div>
-    <div class="container">
-        <div class="box">
-                <div v-for="(movie) in store.searchedMovie" class="movie">
-                    <img :src="movieposter(movie.poster_path)" alt="">
-                    <div>
-                        <h1>{{movie.title}}</h1>
-                        <h3>{{movie.original_title}}</h3>
-                        <span :class="store.standard + checklang(movie.original_language)"></span>
-                        <h4 v-html="calcvote(movie.vote_average)"></h4>
+    <div class="background-color">
+        <div class="title">
+            <h2 v-if="store.searchedMovie.length > 0"> Movies</h2>
+        </div>
+        <div class="container">
+            <div class="box">
+                    <div v-for="(movie) in store.searchedMovie" class="movie">
+                        <img :src="movieposter(movie.poster_path)" alt="">
+                        <div>
+                            <h1>{{movie.title}}</h1>
+                            <h3>{{movie.original_title}}</h3>
+                            <span :class="store.standard + checklang(movie.original_language)"></span>
+                            <h4 v-html="calcvote(movie.vote_average)"></h4>
+                        </div>
                     </div>
-                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -73,10 +76,12 @@ export default{
 
 
 <style scoped>
-
-
+.background-color{
+ background-color: grey;
+}
 
 .title{
+    color: white;
     margin-left: 16%;
 }
 .container{
