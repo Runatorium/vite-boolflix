@@ -36,8 +36,9 @@ export default{
 }
 #size-adjustment{
     position: relative;
-    height: 200px;
-    width: 200px;
+    height: 150px;
+    width: 150px;
+    margin-left: 20px;
 }
 .search{
     margin-right: 20px;
