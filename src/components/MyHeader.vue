@@ -18,7 +18,7 @@ export default{
 <template>
     <div class="header">
         <div class="logo">
-            <img @click="$emit('returnHome')" id="size-adjustment" src="../../public/Boolflix.svg" alt="">
+            <img id="size-adjustment" src="../../public/Boolflix.svg" alt="">
         </div>
         <div class="search">
             <input @keyup.enter="$emit('SearchMovie')" type="text" class="form-control" placeholder="Search movie" v-model="store.search"> 
