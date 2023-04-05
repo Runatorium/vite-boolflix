@@ -58,9 +58,9 @@ export default{
         </div>
         <div class="container">
             <div class="box">
-                    <div v-for="(movie) in store.searchedMovie" class="movie">
-                        <img :src="movieposter(movie.poster_path)" alt="">
-                        <div>
+                    <div :style="{backgroundImage: `url(${movieposter(movie.poster_path)})`}" v-for="(movie) in store.searchedMovie" class="movie">
+                        <div class="overlay"></div>
+                        <div class="details">
                             <h1>{{movie.title}}</h1>
                             <h3>{{movie.original_title}}</h3>
                             <span :class="store.standard + checklang(movie.original_language)"></span>
@@ -76,25 +76,49 @@ export default{
 
 
 <style scoped>
+.movie:hover .overlay{
+    display: block;
+}
+.movie:hover .details{
+    display: block;
+    color: white;
+}
+.overlay{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+}
+.details{
+    display: none;
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
 .background-color{
  background-color: grey;
 }
 
 .title{
     color: white;
-    margin-left: 16%;
+    margin-left: 20%;
 }
 .container{
-    display: flex;
     width: 100%;
+    display: flex;
 }
 .box{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 50px;
 }
 h1{
- font-size: 20px;
+    font-size: 20px;
 }
 h3{
     font-size: 14px;
@@ -103,14 +127,17 @@ span{
     align-self: center;
 }
 .movie{
+    margin: 5px;
+    position: relative;
     border: solid 2px rgb(0, 0, 0);
     color: rgb(0, 0, 0);
-    width: calc(100% / 6);
+    width: 200px;
     display: flex;
     flex-direction: column;
     text-align: center;
     min-height: 300px;
     justify-content: space-between;
+    background-size: cover;
 }
 
 </style>

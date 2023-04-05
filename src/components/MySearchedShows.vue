@@ -57,12 +57,14 @@ export default{
         </div>
         <div class="container">
             <div class="box">
-                    <div v-for="(show) in store.searchedShows" class="show">
-                        <img :src="movieposter(show.poster_path)" alt="">
-                        <h1>{{show.name}}</h1>
-                        <h3>{{show.original_name}}</h3>
-                        <span :class="store.standard + checklang(show.original_language)"></span>
-                        <h4 v-html="calcvote(show.vote_average)"></h4>
+                    <div :style="{backgroundImage: `url(${movieposter(show.poster_path)})`}" v-for="(show) in store.searchedShows" class="show">
+                        <div class="overlay"></div>
+                        <div class="details">
+                            <h1>{{show.name}}</h1>
+                            <h3>{{show.original_name}}</h3>
+                            <span :class="store.standard + checklang(show.original_language)"></span>
+                            <h4 v-html="calcvote(show.vote_average)"></h4>
+                        </div>
                     </div>
             </div>
         </div>
@@ -70,12 +72,35 @@ export default{
 </template>
 
 <style scoped>
+.show:hover .overlay{
+    display: block;
+}
+.show:hover .details{
+    display: block;
+    color: white;
+}
+.details{
+    display: none;
+    width: 100%;
+    padding: 5px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+.overlay{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0);
+}
 .background-color{
     background-color: grey;
 }
 .title{
     color: white;
-    margin-left: 16%;
+    margin-left: 20%;
 }
 .container{
     display: flex;
@@ -84,6 +109,7 @@ export default{
 .box{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 50px;
 }
 h1{
@@ -96,13 +122,16 @@ span{
     align-self: center;
 }
 .show{
+    margin: 5px;
+    position: relative;
     border: solid 2px rgb(0, 0, 0);
     color: rgb(0, 0, 0);
-    width: calc(100% / 6);
+    width: 200px;
     display: flex;
     flex-direction: column;
     text-align: center;
     min-height: 300px;
     justify-content: space-between;
+    background-size: cover;
 }
 </style>
