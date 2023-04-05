@@ -96,11 +96,11 @@ export default{
     background-color: rgba(0, 0, 0);
 }
 .background-color{
-    background-color: grey;
+    background-color: rgb(91, 91, 91);
 }
 .title{
     color: white;
-    margin-left: 20%;
+    margin-left: 18%;
 }
 .container{
     display: flex;
